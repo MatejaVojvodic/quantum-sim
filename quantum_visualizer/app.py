@@ -27,7 +27,7 @@ class QuantumStateVisualiserApp:
 
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("Quantum State Visualiser – SOLID Refactor")
+        self.root.title("Quantum State Visualiser")
         self.root.geometry("1450x880")
 
         self.state_service = QuantumStateService()
