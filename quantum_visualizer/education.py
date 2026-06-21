@@ -85,7 +85,7 @@ class ExplanationService:
             ),
             "Bell state with phase = (|00> + i|11>) / √2": (
                 "This is similar to a Bell state, but it contains an imaginary phase. "
-                "The circle notation shows this using the phase gauge line, while the Hinton view shows "
+                "The circle notation shows this using the phase gauge stripe, while the Hinton view shows "
                 "the real and imaginary density-matrix components."
             ),
             "GHZ state 3 qubits = (|000> + |111>) / √2": (
@@ -286,7 +286,7 @@ class ExplanationService:
             "   • Every basis state, such as |00> or |111>, has its own circle.\n"
             "   • The inner circle radius represents |α|.\n"
             "   • The filled area represents probability |α|².\n"
-            "   • The gauge line shows the complex phase.\n\n"
+            "   • The gauge stripe shows the complex phase.\n\n"
             "Recommended learning path:\n"
             "   1. Product state |00> — one simple outcome.\n"
             "   2. Superposition 2 qubits — several possible outcomes.\n"

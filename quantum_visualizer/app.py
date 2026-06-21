@@ -242,7 +242,7 @@ class QuantumStateVisualizerApp:
             "• Larger circles mean larger absolute values.\n\n"
             "Adaptive circle notation:\n"
             "• Blue area shows probability.\n"
-            "• Gauge line shows phase.\n"
+            "• Gauge stripe shows phase.\n"
             "• For pure states, phase is exact from the state vector.\n"
             "• For noisy states, probability is exact from the density matrix diagonal.\n"
             "• For noisy states, phase is an approximate dominant-state hint.\n\n"

@@ -108,7 +108,7 @@ class AdaptiveCirclePlotter:
 
     Noisy/mixed mode:
     - blue radius/area still comes from the density-matrix diagonal probability
-    - phase gauge is shown as an approximate dominant-state phase, because users
+    - phase stripe is shown as an approximate dominant-state phase, because users
       requested phase to remain visible. The Hinton real/imaginary plots remain
       the more faithful representation of coherence under noise.
     """
@@ -219,7 +219,7 @@ class AdaptiveCirclePlotter:
             if mode == "density_probability_phase":
                 text = (
                     f"{labels[index]} probability from density matrix diagonal = {probability:.4f}. "
-                    f"Phase gauge = {phase:.4f} rad from dominant-state approximation. "
+                    f"Phase stripe = {phase:.4f} rad from dominant-state approximation. "
                     "Use Hinton real/imaginary parts for exact noisy coherence."
                 )
             else:
@@ -362,10 +362,53 @@ class AdaptiveCirclePlotter:
 
     @staticmethod
     def _draw_phase_gauge(ax: Axes, x: float, y: float, radius: float, phase: float) -> None:
-        dx = radius * np.sin(phase)
-        dy = radius * np.cos(phase)
-        ax.plot([x, x], [y, y + radius], color="#CBD5E1", linewidth=0.6, linestyle="--", zorder=4)
-        ax.plot([x, x + dx], [y, y + dy], color="#0F172A", linewidth=1.15, zorder=5)
+        """Draw phase as a simple stripe using the standard complex-plane convention.
+
+        - 0 rad points right along the positive real axis.
+        - +pi/2 points upward along the positive imaginary axis.
+        - pi points left.
+        - -pi/2 or 3pi/2 points downward.
+
+        The stripe has no arrow head because probability is already encoded by
+        the blue filled area. The phase is encoded only by the stripe angle.
+        """
+        if radius <= 1e-12:
+            return
+
+        stripe_radius = radius * 0.92
+
+        # # Reference axes inside the circle: real axis horizontal, imaginary axis vertical.
+        # ax.plot(
+        #     [x - radius * 0.55, x + radius * 0.55],
+        #     [y, y],
+        #     color="#CBD5E1",
+        #     linewidth=0.55,
+        #     linestyle="--",
+        #     zorder=4,
+        # )
+        # ax.plot(
+        #     [x, x],
+        #     [y - radius * 0.55, y + radius * 0.55],
+        #     color="#CBD5E1",
+        #     linewidth=0.55,
+        #     linestyle="--",
+        #     zorder=4,
+        # )
+
+        # Standard phase mapping: x = cos(phi), y = sin(phi).
+        # This keeps the original stripe design, but fixes its angle convention:
+        # 0 rad -> right, +pi/2 -> up, pi -> left, -pi/2 -> down.
+        dx = stripe_radius * np.cos(phase)
+        dy = stripe_radius * np.sin(phase)
+
+        ax.plot(
+            [x, x + dx],
+            [y, y + dy],
+            color="#0F172A",
+            linewidth=1.35,
+            solid_capstyle="round",
+            zorder=6,
+        )
 
     @staticmethod
     def _draw_group_backgrounds(ax: Axes, number_of_qubits: int) -> None:
@@ -437,7 +480,7 @@ class LegendPlotter:
             )
 
         ax.text(1.55, -1.25, "Blue area = probability |α|²", ha="center", fontsize=8)
-        ax.text(1.55, -1.55, "Gauge line = phase φ", ha="center", fontsize=8)
+        ax.text(1.55, -1.55, "Stripe angle = phase φ", ha="center", fontsize=8)
         ax.text(1.55, -1.85, "Noisy view: probability exact; phase ≈ dominant-state hint", ha="center", fontsize=8, color="#64748B")
         ax.set_xlim(-0.8, 3.9)
         ax.set_ylim(-2.15, 1.1)
