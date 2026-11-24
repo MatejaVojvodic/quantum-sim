@@ -1,11 +1,11 @@
-#QuantumSimPlaygroundMateja
+QuantumSimPlaygroundMateja
 
-#Reading Guide
+Reading Guide
 
-##Introduction
+Introduction
 This reading guide explains how evidence demonstrates achievement of the Master of Applied IT learning outcomes in the 1st semester. The project examines how different interactive visualisation techniques can support the understanding and learning of quantum states and quantum noise for users with limited prior knowledge through the development and evaluation of a software prototype.The main focus of this portfolio is to demonstrate Level 4 competency within the Software profile and Level 3 competency within the User Interaction profile.
 
-##Project Overview and Process
+Project Overview and Process
 The project was conducted using an iterative research and development approach by mainly dividing the project into 3 distinct phases: literature research, software development, evaluation and reflection. The overall aim was to investigate how interactive visualisations can support better understanding of quantum states and quantum noise for users with limited prior knowledge of quantum phenomena.
 The project kicked off with an exploration of basic quantum concepts and existing visualisation techniques, taking into consideration the educational nature of the project. A literature study was completed to identify current approaches, their strengths, limitations, and opportunities for improvement. This phase resulted in a clearly defined research gap, research question, and a guideline for how the simulation could be developed.
 The findings from the literature, which produced an examination of several visualisation approaches, were analysed and implemented on a small scale. Existing techniques such as Bloch spheres, histograms, quantum circuits, city-state plop and Hinton diagrams were evaluated, and through conversation with the tutor, what was deemed the most suitable was chosen. This investigation eventually led to the development of the Adaptive Circle Notation concept and the decision to combine it with a Hinton-based density matrix representation.
