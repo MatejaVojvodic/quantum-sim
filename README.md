@@ -2,7 +2,9 @@ QuantumSimPlaygroundMateja
 
 Reading Guide
 
+
 Introduction
+
 This reading guide explains how evidence demonstrates achievement of the Master of Applied IT learning outcomes in the 1st semester. The project examines how different interactive visualisation techniques can support the understanding and learning of quantum states and quantum noise for users with limited prior knowledge through the development and evaluation of a software prototype.The main focus of this portfolio is to demonstrate Level 4 competency within the Software profile and Level 3 competency within the User Interaction profile.
 
 Project Overview and Process
